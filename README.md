@@ -13,6 +13,10 @@
 &nbsp;
 [![All releases](https://img.shields.io/github/v/release/ahmedsamir8121991/autocad-remote-mcp?style=for-the-badge&label=latest)](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest)
 
+<p align="center">
+  <img src="assets/floor-plan-demo.jpg" alt="One message to Claude, one floor plan in AutoCAD: 3 bedrooms, 2 baths and an open kitchen, every room labelled with its area" width="560">
+</p>
+
 AutoCAD Remote MCP is a single Windows executable that connects [Claude](https://claude.ai) (Claude Desktop or Claude Code) to AutoCAD through the [Model Context Protocol](https://modelcontextprotocol.io). Run the same `AutoCADRemoteMCP.exe` on the PC that has AutoCAD and on the PC that has Claude, pair them with a code and your password, and Claude can draw, edit, dimension, measure, check and deliver drawings in plain language.
 
 ```
@@ -21,6 +25,20 @@ AutoCAD Remote MCP is a single Windows executable that connects [Claude](https:/
 ```
 
 Nothing goes over the internet. No accounts, no cloud relay, no router settings.
+
+## First time? Start here
+
+You need two PCs on the same Wi-Fi or office network: one with AutoCAD, one with Claude. Plan for about 5 minutes.
+
+1. **Download** [AutoCADRemoteMCP.exe](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest/download/AutoCADRemoteMCP.exe) and copy it to both PCs.
+2. **On the AutoCAD PC:** double-click it, choose `1`, set a password (write it down, it can't be recovered), and copy the `ACAD-…` pairing code it shows. Leave the window open until it says **ONLINE**, then open AutoCAD.
+3. **On the Claude PC:** double-click it, choose `2`, paste the pairing code and type your password.
+4. **Restart Claude:** right-click the Claude icon near the clock → **Quit**, then open Claude again.
+5. **Put your drawings** in `Documents\AutoCAD Remote` on the AutoCAD PC. That's the only folder Claude can open and save in.
+6. **Try it.** Ask Claude:
+   > Check the AutoCAD status, then draw a 3-bedroom floor plan with 2 baths and an open kitchen, and label every room with its area.
+
+If Windows shows "Windows protected your PC", click **More info → Run anyway** (the exe isn't code-signed). If Claude can't reach AutoCAD, check that both PCs are on the same network and that it's set to **Private** in Windows. Full details are in [Quick start](#quick-start) and [Troubleshooting](#troubleshooting).
 
 ---
 
@@ -73,7 +91,6 @@ Python is **not** required on either PC; everything is bundled in the exe.
 3. Choose a password (8+ characters, 12+ recommended). It cannot be recovered — store it safely.
 4. The app installs itself, sets itself to start with Windows, and shows a **pairing code** (`ACAD-…`, also copied to the clipboard).
 5. Wait for **ONLINE**. Allow the firewall prompt for *Private networks* if Windows asks. Open AutoCAD as usual.
-6. keep the window open while using MCP tool
 
 Put drawings you want Claude to work on in `Documents\AutoCAD Remote` (created automatically), or pick another folder from the menu.
 
