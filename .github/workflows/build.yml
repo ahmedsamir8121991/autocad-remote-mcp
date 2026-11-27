@@ -70,7 +70,7 @@ jobs:
             dist/AutoCADRemoteMCP.exe
             dist/AutoCADRemoteMCP.zip
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: AutoCADRemoteMCP-${{ github.sha }}
           path: |
