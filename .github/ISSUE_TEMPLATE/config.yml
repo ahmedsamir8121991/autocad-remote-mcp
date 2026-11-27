@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/ahmedsamir8121991/autocad-remote-mcp/discussions
+    about: Ask how to do something or share what you built with Claude + AutoCAD.
+  - name: Download the latest version
+    url: https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest
+    about: Get AutoCADRemoteMCP.exe.
