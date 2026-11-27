@@ -64,7 +64,7 @@ jobs:
           Get-Content dist\SHA256SUMS.txt
 
       - name: Sign build attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v4
         with:
           subject-path: |
             dist/AutoCADRemoteMCP.exe
