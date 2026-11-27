@@ -45,7 +45,7 @@ keyring==25.7.0
 kiwisolver==1.5.1
 markdown-it-py==4.3.0
 matplotlib==3.11.2
-mcp==1.30.0
+mcp==2.3.0
 mdurl==0.1.2
 more-itertools==11.2.1
 numpy==2.5.5
