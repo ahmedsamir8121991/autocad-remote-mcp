@@ -260,6 +260,23 @@ uv pip install --python .venv\Scripts\python.exe "C:\autocad-mcp-pro[full]" pyin
 
 Output: `dist\AutoCADRemoteMCP.exe` (single file) plus `README.txt` and the bundled engine licence.
 
+> The build also needs the AutoCAD MCP Pro engine. Clone [U-C4N/Autocad-MCP](https://github.com/U-C4N/Autocad-MCP) to `C:\autocad-mcp-pro`, or change that path in `build.ps1`.
+
+### Project layout
+
+| File | What it does |
+|---|---|
+| `src/launcher.py` | The exe's entry point: setup menu, password, pairing code, network discovery, Claude config, auto-start |
+| `src/acad_server.py` | MCP server and core AutoCAD tools (COM automation), safe mode, request signing and checks |
+| `src/acad_crypto.py` | AES-256-GCM encryption of every request and reply |
+| `src/acad_skills.py` | Measured workflows: requirement checks, batches, checkpoints, takeoffs, plans, parts, P&ID, delivery |
+| `src/acad_pro.py` | Extra drafting tools through COM (no command line, LISP or scripts) |
+| `src/acad_bridge.py` | Runs the AutoCAD MCP Pro engine's tools in-process under the same safe-mode rules |
+| `src/acad_search.py` | Tool search (`search_tools`, `describe_tool`, `call_tool`) |
+| `src/acad_template.py` | `template_check`: compares the open drawing with your company template (read-only) |
+| `tests/` | Security, password, encryption, search and end-to-end tests |
+| `build.ps1`, `AutoCADRemoteMCP.spec` | PyInstaller build of the single exe |
+
 ## File locations
 
 | What | Where |

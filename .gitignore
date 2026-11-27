@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# PyInstaller output
+build/
+dist/
+
+# Logs (can contain local paths)
+*.log
+
+# Local settings / secrets
+.env
+*.bak-autocad
+server.json
+client.json
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
