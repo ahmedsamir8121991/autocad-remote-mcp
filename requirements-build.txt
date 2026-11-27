@@ -57,7 +57,7 @@ pathable==0.6.0
 pefile==2024.8.26
 pillow==13.0.0
 platformdirs==4.14.8
-py-key-value-aio==0.4.6
+py-key-value-aio==0.5.0
 pycparser==3.12
 pydantic-settings==2.16.3
 pydantic==2.14.4
