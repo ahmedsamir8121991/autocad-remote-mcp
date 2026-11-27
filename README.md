@@ -8,6 +8,9 @@
 ![Network](https://img.shields.io/badge/network-LAN%20only-orange)
 ![License](https://img.shields.io/github/license/ahmedsamir8121991/autocad-remote-mcp)
 ![Stars](https://img.shields.io/github/stars/ahmedsamir8121991/autocad-remote-mcp?style=social)
+[![Verified build](https://github.com/ahmedsamir8121991/autocad-remote-mcp/actions/workflows/build.yml/badge.svg)](https://github.com/ahmedsamir8121991/autocad-remote-mcp/actions/workflows/build.yml)
+[![CodeQL](https://github.com/ahmedsamir8121991/autocad-remote-mcp/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/ahmedsamir8121991/autocad-remote-mcp/security/code-scanning)
+![No telemetry](https://img.shields.io/badge/telemetry-none-brightgreen)
 
 [![Download AutoCADRemoteMCP.exe](https://img.shields.io/badge/Download-AutoCADRemoteMCP.exe-2ea44f?style=for-the-badge&logo=windows)](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest/download/AutoCADRemoteMCP.exe)
 &nbsp;
@@ -161,6 +164,41 @@ Put drawings you want Claude to work on in `Documents\AutoCAD Remote` (created a
 > Check the AutoCAD status, then draw a 100 × 50 rectangle on a new layer called WALLS in red, and zoom extents.
 
 > Read recipe 'part', then draw a 120 × 80 plate with four 8.5 mm holes 20 mm from the edges, verify it and deliver it as Bracket-A.
+
+## Why you can trust it
+
+| | |
+|---|---|
+| **Open source** | Every line of the app is in [`src/`](src). Nothing is hidden in the exe that isn't here. |
+| **No telemetry, no internet** | No analytics, no update checks, no accounts, no cloud. The only network address in the whole source is the reply from your own AutoCAD PC on your local network ([`launcher.py`](src/launcher.py)). |
+| **Verified builds** | Release files are built by GitHub's own machines from this exact code ([build log](https://github.com/ahmedsamir8121991/autocad-remote-mcp/actions/workflows/build.yml)), with a signed build attestation. |
+| **Scanned** | GitHub CodeQL checks the code on every change; Dependabot watches every dependency for known vulnerabilities. |
+| **Tested** | [`tests/`](tests) checks that wrong passwords, tampered, replayed, unsigned and unencrypted requests are all refused, and that a copied settings file is useless without the password. |
+| **Pinned dependencies** | Exact versions in [`requirements-build.txt`](requirements-build.txt); the bundled engine is pinned to one reviewed commit. |
+
+### Check your download yourself
+
+Compare the file's fingerprint with `SHA256SUMS.txt` on the [release page](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest):
+
+```powershell
+Get-FileHash .\AutoCADRemoteMCP.exe -Algorithm SHA256
+```
+
+Or prove it was built by GitHub from this repository (needs the free [GitHub CLI](https://cli.github.com)):
+
+```powershell
+gh attestation verify .\AutoCADRemoteMCP.exe --repo ahmedsamir8121991/autocad-remote-mcp
+```
+
+### What it can never do
+
+- Run free-form AutoCAD commands, AutoLISP, scripts or programs
+- Open, save or read files outside the one drawings folder you choose
+- Change AutoCAD security settings such as `SECURELOAD` or `TRUSTEDPATHS`
+- Connect over the internet, or accept anyone without your pairing code **and** password
+- Save or send your password
+
+Windows SmartScreen may still warn the first time because the exe isn't code-signed with a paid certificate. That warning is about the missing certificate, not about anything the app does.
 
 ## Security model
 

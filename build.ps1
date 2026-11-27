@@ -1,7 +1,11 @@
 # Builds dist\AutoCADRemoteMCP.exe (one file) from src\ plus the AutoCAD MCP Pro engine.
 # Build environment: .venv here, made with:
-#   uv venv .venv --python 3.12
-#   uv pip install --python .venv\Scripts\python.exe "C:\autocad-mcp-pro[full]" pyinstaller uvicorn
+#   git clone https://github.com/U-C4N/Autocad-MCP C:\autocad-mcp-pro
+#   git -C C:\autocad-mcp-pro checkout 6f6a538255ca9f885232e845ac32f10b4433fe3e
+#   py -3.12 -m venv .venv
+#   .venv\Scripts\python.exe -m pip install -r requirements-build.txt
+#   .venv\Scripts\python.exe -m pip install --no-deps C:\autocad-mcp-pro
+# GitHub Actions runs exactly these steps in .github/workflows/build.yml and signs the result.
 $ErrorActionPreference = 'Stop'
 Set-Location $PSScriptRoot
 $py = '.venv\Scripts\python.exe'
