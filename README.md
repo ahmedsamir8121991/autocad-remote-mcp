@@ -73,6 +73,7 @@ Python is **not** required on either PC; everything is bundled in the exe.
 3. Choose a password (8+ characters, 12+ recommended). It cannot be recovered — store it safely.
 4. The app installs itself, sets itself to start with Windows, and shows a **pairing code** (`ACAD-…`, also copied to the clipboard).
 5. Wait for **ONLINE**. Allow the firewall prompt for *Private networks* if Windows asks. Open AutoCAD as usual.
+6. keep the window open while using MCP tool
 
 Put drawings you want Claude to work on in `Documents\AutoCAD Remote` (created automatically), or pick another folder from the menu.
 
