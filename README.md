@@ -172,7 +172,7 @@ Put drawings you want Claude to work on in `Documents\AutoCAD Remote` (created a
 | **Open source** | Every line of the app is in [`src/`](src). Nothing is hidden in the exe that isn't here. |
 | **No telemetry, no internet** | No analytics, no update checks, no accounts, no cloud. The only network address in the whole source is the reply from your own AutoCAD PC on your local network ([`launcher.py`](src/launcher.py)). |
 | **Verified builds** | Release files are built by GitHub's own machines from this exact code ([build log](https://github.com/ahmedsamir8121991/autocad-remote-mcp/actions/workflows/build.yml)), with a signed build attestation. |
-| **Scanned** | GitHub CodeQL checks the code on every change; Dependabot watches every dependency for known vulnerabilities. |
+| **Scanned** | GitHub CodeQL checks the code on every change; Dependabot watches every dependency for known vulnerabilities. The v6.2.1 exe is on [VirusTotal](https://www.virustotal.com/gui/file/4b334332ca5de38dfdead2ae81d4e6ed748d124d70c20f468c6bf25aef9e6cf7/detection): 63 of 64 engines clean, including Microsoft, BitDefender, Avast, CrowdStrike and ClamAV. The one flag (Bkav Pro, generic "W32.Malware") is a common false alarm on apps packaged with PyInstaller. |
 | **Tested** | [`tests/`](tests) checks that wrong passwords, tampered, replayed, unsigned and unencrypted requests are all refused, and that a copied settings file is useless without the password. |
 | **Pinned dependencies** | Exact versions in [`requirements-build.txt`](requirements-build.txt); the bundled engine is pinned to one reviewed commit. |
 
