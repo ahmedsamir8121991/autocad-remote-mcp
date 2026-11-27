@@ -1,0 +1,28 @@
+name: Feature request
+description: Suggest a new tool or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What do you want Claude to be able to do in AutoCAD?
+      description: Describe the drawing task. The AutoCAD command you'd normally use helps (e.g. STRETCH, DATAEXTRACTION).
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example prompt
+      placeholder: "Draw a ... and dimension it to ISO ..."
+  - type: dropdown
+    id: discipline
+    attributes:
+      label: Discipline
+      options:
+        - Architecture
+        - Mechanical
+        - P&ID / Process
+        - Electrical
+        - Civil / Structural
+        - General drafting
+        - Other
