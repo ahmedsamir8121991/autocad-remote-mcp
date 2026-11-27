@@ -6,6 +6,12 @@
 ![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
 ![Tools](https://img.shields.io/badge/tools-247-green)
 ![Network](https://img.shields.io/badge/network-LAN%20only-orange)
+![License](https://img.shields.io/github/license/ahmedsamir8121991/autocad-remote-mcp)
+![Stars](https://img.shields.io/github/stars/ahmedsamir8121991/autocad-remote-mcp?style=social)
+
+[![Download AutoCADRemoteMCP.exe](https://img.shields.io/badge/Download-AutoCADRemoteMCP.exe-2ea44f?style=for-the-badge&logo=windows)](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest/download/AutoCADRemoteMCP.exe)
+&nbsp;
+[![All releases](https://img.shields.io/github/v/release/ahmedsamir8121991/autocad-remote-mcp?style=for-the-badge&label=latest)](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest)
 
 AutoCAD Remote MCP is a single Windows executable that connects [Claude](https://claude.ai) (Claude Desktop or Claude Code) to AutoCAD through the [Model Context Protocol](https://modelcontextprotocol.io). Run the same `AutoCADRemoteMCP.exe` on the PC that has AutoCAD and on the PC that has Claude, pair them with a code and your password, and Claude can draw, edit, dimension, measure, check and deliver drawings in plain language.
 
@@ -191,6 +197,16 @@ Output: `dist\AutoCADRemoteMCP.exe` (single file) plus `README.txt` and the bund
 | Activity history | `%LOCALAPPDATA%\AutoCADRemoteMCP\history\` (90 days) |
 | Auto-start | Startup folder shortcut *AutoCAD Remote MCP* |
 | Claude config backups | `*.bak-autocad` next to the original config |
+
+## Feedback
+
+- Found a bug? [Open an issue](https://github.com/ahmedsamir8121991/autocad-remote-mcp/issues/new/choose). Never post your password or pairing code.
+- Questions, ideas, or something cool you drew with Claude? Share it in [Discussions](https://github.com/ahmedsamir8121991/autocad-remote-mcp/discussions).
+- If this saves you time, a ⭐ helps other AutoCAD users find it.
+
+## License
+
+[MIT](LICENSE). The bundled AutoCAD MCP Pro engine is also MIT-licensed (see below).
 
 ## Credits
 
