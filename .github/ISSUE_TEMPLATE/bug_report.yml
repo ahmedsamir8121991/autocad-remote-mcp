@@ -1,0 +1,60 @@
+name: Bug report
+description: Something doesn't work as described
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Never paste your password or pairing code here.**
+  - type: input
+    id: version
+    attributes:
+      label: AutoCAD Remote MCP version
+      placeholder: "6.2.0"
+    validations:
+      required: true
+  - type: input
+    id: autocad
+    attributes:
+      label: AutoCAD version
+      placeholder: "AutoCAD 2026"
+    validations:
+      required: true
+  - type: dropdown
+    id: client
+    attributes:
+      label: Claude client
+      options:
+        - Claude Desktop
+        - Claude Code
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network mode
+      options:
+        - LOCAL NETWORK
+        - THIS PC only
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you asked Claude, what you expected, and what happened instead. Include the exact error message.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. Make sure they don't show your pairing code.
