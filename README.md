@@ -28,17 +28,71 @@ Nothing goes over the internet. No accounts, no cloud relay, no router settings.
 
 ## First time? Start here
 
-You need two PCs on the same Wi-Fi or office network: one with AutoCAD, one with Claude. Plan for about 5 minutes.
+Setup takes about 5 minutes. First, [download AutoCADRemoteMCP.exe](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest/download/AutoCADRemoteMCP.exe).
 
-1. **Download** [AutoCADRemoteMCP.exe](https://github.com/ahmedsamir8121991/autocad-remote-mcp/releases/latest/download/AutoCADRemoteMCP.exe) and copy it to both PCs.
-2. **On the AutoCAD PC:** double-click it, choose `1`, set a password (write it down, it can't be recovered), and copy the `ACAD-…` pairing code it shows. Leave the window open until it says **ONLINE**, then open AutoCAD.
-3. **On the Claude PC:** double-click it, choose `2`, paste the pairing code and type your password.
-4. **Restart Claude:** right-click the Claude icon near the clock → **Quit**, then open Claude again.
-5. **Put your drawings** in `Documents\AutoCAD Remote` on the AutoCAD PC. That's the only folder Claude can open and save in.
-6. **Try it.** Ask Claude:
-   > Check the AutoCAD status, then draw a 3-bedroom floor plan with 2 baths and an open kitchen, and label every room with its area.
+> [!IMPORTANT]
+> **Keep the black AutoCAD Remote MCP window open the whole time you use AutoCAD with Claude.**
+> You can minimize it, but don't close it. If it's closed, Claude can't reach AutoCAD.
+> It opens by itself when you log in to Windows and asks for your password.
 
-If Windows shows "Windows protected your PC", click **More info → Run anyway** (the exe isn't code-signed). If Claude can't reach AutoCAD, check that both PCs are on the same network and that it's set to **Private** in Windows. Full details are in [Quick start](#quick-start) and [Troubleshooting](#troubleshooting).
+Pick the setup that matches you:
+
+| | Option A: One PC | Option B: Two PCs |
+|---|---|---|
+| **You have** | AutoCAD and Claude on the **same** computer | AutoCAD on one computer, Claude on another |
+| **Network** | Not needed | Both PCs on the **same** Wi-Fi or office network |
+
+### Option A: One PC (AutoCAD and Claude on the same computer)
+
+1. **Share AutoCAD.** Double-click `AutoCADRemoteMCP.exe` and type `1`.
+2. **Choose a password** and type it twice. Write it down: it can't be recovered.
+3. **Wait for ONLINE.** The pairing code (`ACAD-…`) is copied for you. **Leave this window open.**
+4. **Connect Claude.** Double-click `AutoCADRemoteMCP.exe` **again**. A menu opens: type your password, then type `2`.
+5. **Paste the pairing code** (right-click pastes) and type your password.
+6. **Restart Claude:** right-click the Claude icon near the clock → **Quit**, then open Claude again.
+7. **Open AutoCAD** and ask Claude something (see [Try it](#try-it)).
+
+> [!TIP]
+> For the most privacy, open the menu again, choose `7` and pick `P` (**THIS PC only**). Then no other computer can connect.
+
+### Option B: Two PCs (AutoCAD on one, Claude on the other)
+
+Copy `AutoCADRemoteMCP.exe` to both PCs.
+
+**On the AutoCAD PC:**
+1. Double-click `AutoCADRemoteMCP.exe` and type `1`.
+2. Choose a password and type it twice. Write it down: it can't be recovered.
+3. Copy the pairing code (`ACAD-…`). It's copied for you; send it to yourself.
+4. Wait for **ONLINE**. **Leave this window open.**
+5. If Windows asks about the firewall, tick **Private networks** and click **Allow access**.
+6. Open AutoCAD.
+
+**On the Claude PC:**
+1. Double-click `AutoCADRemoteMCP.exe` and type `2`.
+2. Paste the pairing code (right-click pastes) and type your password.
+3. Restart Claude: right-click the Claude icon near the clock → **Quit**, then open Claude again.
+
+### Try it
+
+Put your drawings in `Documents\AutoCAD Remote` on the AutoCAD PC. That's the only folder Claude can open and save in. Then ask Claude:
+
+> Check the AutoCAD status, then draw a 3-bedroom floor plan with 2 baths and an open kitchen, and label every room with its area.
+
+### Every day after that
+
+- Turn on the AutoCAD PC, type your password in the window that opens, and keep that window open.
+- Open AutoCAD, then open Claude. Claude asks for your password once the first time it uses AutoCAD.
+
+### If something goes wrong
+
+| Problem | Fix |
+|---|---|
+| "Windows protected your PC" | Click **More info → Run anyway**. The exe isn't code-signed. |
+| Claude says it can't reach AutoCAD | Check that the AutoCAD Remote MCP window is still open and says **ONLINE**. |
+| Two PCs still can't connect | Make sure both are on the same network and that Windows shows it as **Private**. |
+| Claude doesn't show the AutoCAD tools | Fully quit Claude from the icon near the clock, then open it again. |
+
+More help: [Quick start](#quick-start) · [Troubleshooting](#troubleshooting)
 
 ---
 
