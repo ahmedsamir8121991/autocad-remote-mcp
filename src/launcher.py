@@ -1,4 +1,4 @@
-﻿"""
+"""
 AutoCAD Remote MCP  -  one exe, two roles, protected by YOUR password
 =====================================================================
 
@@ -47,7 +47,7 @@ import urllib.request
 from pathlib import Path
 
 APP = "AutoCADRemoteMCP"
-VERSION = "6.2.0"
+VERSION = "6.2.1"
 SERVER_NAME = "autocad-remote"
 UA = f"{APP}/{VERSION}"
 
@@ -72,15 +72,41 @@ SCRYPT = dict(n=2 ** 15, r=8, p=1, maxmem=64 * 1024 * 1024, dklen=32)
 # small helpers
 # =============================================================================
 
+def _holds_secret(path: Path) -> bool:
+    """server.json / client.json hold the pairing secret; it is kept DPAPI-encrypted on disk."""
+    return path in (SERVER_CFG, CLIENT_CFG)
+
+
 def read_json(path: Path, default=None):
     try:
-        return json.loads(path.read_text(encoding="utf-8-sig"))
+        data = json.loads(path.read_text(encoding="utf-8-sig"))
     except Exception:
         return {} if default is None else default
+    if isinstance(data, dict) and _holds_secret(path):
+        if "secret_enc" in data:
+            try:
+                data["secret"] = unprotect(data.pop("secret_enc"))
+            except Exception:
+                # Copied from another PC or another Windows account: the secret cannot be read here,
+                # so this PC behaves as not set up (choose [1] or [2] again).
+                data.pop("secret", None)
+        elif data.get("secret"):
+            try:
+                write_json(path, data)  # file from v6.2.0 or older: encrypt its plain secret now
+            except Exception:
+                pass
+    return data
 
 
 def write_json(path: Path, data) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    if isinstance(data, dict) and _holds_secret(path) and data.get("secret"):
+        data = dict(data)
+        try:
+            data["secret_enc"] = protect(data["secret"])
+            del data["secret"]
+        except Exception:
+            pass  # DPAPI unavailable: keep the plain secret so the app keeps working as before
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text(json.dumps(data, indent=2), encoding="utf-8")
     os.replace(tmp, path)

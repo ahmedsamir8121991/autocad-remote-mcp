@@ -1,4 +1,4 @@
-﻿"""AutoCAD MCP tools (COM automation) + HTTP app with token auth."""
+"""AutoCAD MCP tools (COM automation) + HTTP app with token auth."""
 
 from __future__ import annotations
 
@@ -19,7 +19,7 @@ from mcp.server.fastmcp import FastMCP as MCPServer, Image  # noqa: F401  (Image
 from mcp.server.fastmcp.exceptions import ToolError
 from mcp.server.transport_security import TransportSecuritySettings
 
-VERSION = "6.2.0"
+VERSION = "6.2.1"
 
 # Tools that only look at the drawing. In read-only mode every other tool is removed.
 READ_ONLY_TOOLS = {

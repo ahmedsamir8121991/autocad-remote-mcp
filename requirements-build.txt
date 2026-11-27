@@ -1,4 +1,4 @@
-# Exact versions used to build AutoCADRemoteMCP.exe v6.2.0 (Python 3.12, Windows).
+# Exact versions used to build AutoCADRemoteMCP.exe v6.2.1 (Python 3.12, Windows).
 # Install with:  pip install -r requirements-build.txt
 # The AutoCAD MCP Pro engine is installed separately from U-C4N/Autocad-MCP at a pinned commit (see build.ps1 / .github/workflows/build.yml).
 

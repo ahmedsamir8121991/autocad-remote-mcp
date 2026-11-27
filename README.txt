@@ -204,7 +204,7 @@ To connect, you need TWO things:
 
 
 =====================================================================
- WHAT CLAUDE CAN DO (116 tools)
+ WHAT CLAUDE CAN DO (120 tools)
 =====================================================================
  Vision   : capture_screenshot - Claude SEES the drawing (PNG of the
             AutoCAD drawing area) to check its own work
@@ -281,7 +281,7 @@ To connect, you need TWO things:
  Try: "Read recipe 'part', then draw a 120x80 plate with four 8.5 mm
  holes 20 mm from the edges, verify it and deliver it as Bracket-A."
 
- PRO ENGINE (new in v6.0 - 128 more tools, 247 in total)
+ PRO ENGINE (new in v6.0 - 131 more tools, 251 in total)
  Built in: the AutoCAD MCP Pro engine (github.com/U-C4N/Autocad-MCP,
  MIT licence, see LICENSE-AutoCAD-MCP-Pro.txt). Same safe mode: drawings
  folder only, no LISP / commands / scripts, READ-ONLY mode respected.
@@ -341,7 +341,7 @@ To connect, you need TWO things:
             as the rest of the app (no more "active document changed").
 
  TOOL SEARCH (new in v6.0)
- Claude is shown only 12 tools up front instead of all 247, which saves
+ Claude is shown only 12 tools up front instead of all 251, which saves
  tokens and helps it pick the right tool. It finds the rest with:
    search_tools  - by AutoCAD command (FILLET, BPOLY, QSELECT, LAYISO,
                    PAGESETUP, MLEADER ...) or plain words ("round off a
@@ -349,7 +349,7 @@ To connect, you need TWO things:
    describe_tool - full parameters of a tool it found
    call_tool     - runs it (same safety rules as calling it directly)
  Every tool can still be called by its own name.
- To list all 247 tools up front instead, add  "discovery": "full"  to
+ To list all 251 tools up front instead, add  "discovery": "full"  to
  %APPDATA%\AutoCADRemoteMCP\server.json on the AutoCAD PC and restart
  sharing.
 
@@ -426,6 +426,8 @@ To connect, you need TWO things:
  - Key storage: PASSWORD EVERY START on = check value only (HMAC of the
    key, which can't be turned back into the key); off = key encrypted
    with Windows DPAPI (current user).
+ - Pairing code on disk: encrypted with Windows DPAPI (current user,
+   new in v6.2.1). A copied settings folder is useless on another PC.
  - Finding the PC: UDP broadcast on the local network; only an answer
    signed with your key is accepted.
  - Files:     %LOCALAPPDATA%\AutoCADRemoteMCP\  (the installed exe)

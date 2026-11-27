@@ -2,9 +2,9 @@
 
 **Let Claude drive AutoCAD on another PC on your local network — password-protected, end-to-end encrypted, and locked to safe drawing tools.**
 
-![Version](https://img.shields.io/badge/version-6.2.0-blue)
+![Version](https://img.shields.io/badge/version-6.2.1-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
-![Tools](https://img.shields.io/badge/tools-247-green)
+![Tools](https://img.shields.io/badge/tools-251-green)
 ![Network](https://img.shields.io/badge/network-LAN%20only-orange)
 ![License](https://img.shields.io/github/license/ahmedsamir8121991/autocad-remote-mcp)
 ![Stars](https://img.shields.io/github/stars/ahmedsamir8121991/autocad-remote-mcp?style=social)
@@ -106,7 +106,7 @@ More help: [Quick start](#quick-start) · [Troubleshooting](#troubleshooting)
 - **Password + pairing code** — both are required to connect. The password is never stored or transmitted.
 - **Encrypted end to end** — every request and reply is signed and encrypted (AES-256-GCM); replays and tampering are refused.
 - **Safe mode, always on** — no free-form commands, LISP or scripts; file access limited to one drawings folder; security system variables are read-only.
-- **247 tools** — drawing, editing, dimensions (with ISO tolerances and fits), blocks, layers, layouts, 3D solids, P&ID, architectural plans, mechanical parts, takeoffs and delivery packages.
+- **251 tools** — drawing, editing, dimensions (with ISO tolerances and fits), blocks, layers, layouts, 3D solids, P&ID, architectural plans, mechanical parts, takeoffs and delivery packages.
 - **Claude can see its work** — screenshots of the AutoCAD drawing area so Claude can check what it drew.
 - **Measured verification** — requirements are checked against the actual geometry (target / measured / delta / pass-fail), not assumed.
 - **Token-efficient tool search** — only 12 tools are shown up front; Claude finds the rest by AutoCAD command name or plain words.
@@ -206,6 +206,7 @@ Windows SmartScreen may still warn the first time because the exe isn't code-sig
 |---|---|
 | Two-factor pairing | Connecting needs the pairing code **and** your password. The code alone is useless. |
 | No stored password | The password is never saved or sent. With *Password every start* on (default), only a non-reversible check value is stored; the key is rebuilt in memory from your password each time. With it off, the key is stored encrypted with Windows DPAPI for your user account only. |
+| Pairing code at rest | Saved encrypted with Windows DPAPI for your user account (since v6.2.1). A settings folder copied to another PC or account can't be read. |
 | Key derivation | scrypt (N = 32768, r = 8) from password + pairing code. |
 | Encryption | AES-256-GCM for every request and reply; each reply is bound to its request. |
 | Signing & replay protection | HMAC-SHA256 over time, nonce, method, path and body hash. Requests older than 2 minutes or reusing a nonce are refused. |
@@ -223,7 +224,7 @@ Even with the code and password — or if Claude follows a bad instruction — t
 - **Drawing text is data.** Claude is told never to follow instructions written inside a drawing.
 - **Read-only access mode** is available: Claude can only look, measure, search and take screenshots.
 
-## What Claude can do (247 tools)
+## What Claude can do (251 tools)
 
 | Area | Examples |
 |---|---|
@@ -247,7 +248,7 @@ Even with the code and password — or if Claude follows a bad instruction — t
 
 Not included on purpose: free-form commands, LISP and scripts. Not yet supported: dynamic blocks, multi-sheet P&ID projects, electrical schematics.
 
-> To expose all 247 tools up front instead of tool search, add `"discovery": "full"` to `%APPDATA%\AutoCADRemoteMCP\server.json` on the AutoCAD PC and restart sharing.
+> To expose all 251 tools up front instead of tool search, add `"discovery": "full"` to `%APPDATA%\AutoCADRemoteMCP\server.json` on the AutoCAD PC and restart sharing.
 
 ## Menu options
 
